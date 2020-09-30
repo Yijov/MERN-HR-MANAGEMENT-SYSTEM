@@ -1,0 +1,22 @@
+.container {
+  overflow: hidden;
+  width: 100%;
+}
+td {
+  width: auto;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  font-weight: 400;
+}
+.add {
+  margin-top: 1rem;
+}
+.error {
+  color: red;
+}
