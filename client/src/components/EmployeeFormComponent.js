@@ -20,6 +20,7 @@ export default function EmployeeFormComponent({
         "Content-Type": "application/json",
       },
     };
+
     try {
       await axios.post("http://localhost:5000/api/employees", data, config);
       //await addEmployee(data)

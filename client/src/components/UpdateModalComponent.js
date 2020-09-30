@@ -9,11 +9,13 @@ const UpdateModalComponent = (props) => {
 
   const toggle = () => setModal(!modal);
 
-  const handleDeleEmployee = async () => {
+  const newState = employees.filter((emp) => emp._id !== employee._id);
+
+  const handleDeleEmployee = () => {
     if (window.confirm("Are you sure you want to delete this employee")) {
       const allEmployees = `http://localhost:5000/api/employees/${employee._id}`;
       axios.delete(allEmployees).then((res) => {
-        setEmployees([...employees]); //reset the state
+        setEmployees([...newState]);
         window.alert("Employee Deleted");
         toggle();
       });

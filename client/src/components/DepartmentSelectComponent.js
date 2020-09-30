@@ -7,10 +7,19 @@ function DepartmentSelectComponent() {
   useEffect(() => {
     // On load calls the back en for the list of departments
     const allDepartments = "http://localhost:5000/api/departments";
-    axios.get(allDepartments).then((res) => {
-      setDepartments(res.data);
-    });
+    let cancel;
+    axios
+      .get(allDepartments, {
+        cancelToken: new axios.CancelToken((c) => (cancel = c)),
+      })
+      .then((res) => {
+        setDepartments(res.data);
+      });
+    return () => {
+      cancel();
+    };
   }, []);
+
   return (
     <>
       {departments.map((departmentObject) => (
