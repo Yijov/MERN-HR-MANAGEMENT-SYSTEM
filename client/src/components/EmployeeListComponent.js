@@ -1,25 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
+import { EmployeeContext } from "../EmployeesContext";
 import { Table } from "reactstrap";
-import axios from "axios";
+
 import IndividualEmployeeComponent from "./IndividualEmployeeComponent";
 
-const EmployeeListComponent = ({ employees, setEmployees }) => {
-  useEffect(() => {
-    // On load calls the back en for the list of  employees
-    const allEmployees = "http://localhost:5000/api/employees";
-    let cancel;
-    axios
-      .get(allEmployees, {
-        cancelToken: new axios.CancelToken((c) => (cancel = c)),
-      })
-      .then((res) => {
-        setEmployees(res.data);
-      });
-
-    return () => {
-      cancel();
-    };
-  }, []);
+const EmployeeListComponent = () => {
+  const [employees] = useContext(EmployeeContext);
 
   return (
     <Table striped>
@@ -36,12 +22,7 @@ const EmployeeListComponent = ({ employees, setEmployees }) => {
       </thead>
       <tbody>
         {employees.map((employee) => (
-          <IndividualEmployeeComponent
-            key={employee._id}
-            employee={employee}
-            setEmployees={setEmployees}
-            employees={employees}
-          />
+          <IndividualEmployeeComponent key={employee._id} employee={employee} />
         ))}
       </tbody>
     </Table>

@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { EmployeeContext } from "../EmployeesContext";
 import { useForm } from "react-hook-form";
 import { Spinner } from "reactstrap";
 import axios from "axios";
 import DepartmentSelectComponen from "./DepartmentSelectComponent";
 
-export default function EmployeeFormComponent({
-  toggle,
-  employees,
-  setEmployees,
-  employee,
-}) {
+export default function EmployeeFormComponent({ toggle, employee }) {
+  const [employees, setEmployees] = useContext(EmployeeContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const { register, handleSubmit } = useForm();

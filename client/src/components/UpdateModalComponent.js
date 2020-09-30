@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { EmployeeContext } from "../EmployeesContext";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import UpdateFormComponent from "./UpdateFormComponent";
 import axios from "axios";
-const UpdateModalComponent = (props) => {
-  const { buttonLabel, className, employees, setEmployees, employee } = props;
 
+const UpdateModalComponent = (props) => {
+  const [employees, setEmployees] = useContext(EmployeeContext);
+  const { buttonLabel, className, employee } = props;
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
@@ -31,12 +33,7 @@ const UpdateModalComponent = (props) => {
         <ModalHeader toggle={toggle}>Insert New Values</ModalHeader>
         <ModalBody>
           <div>
-            <UpdateFormComponent
-              toggle={toggle}
-              employees={employees}
-              setEmployees={setEmployees}
-              employee={employee}
-            />
+            <UpdateFormComponent toggle={toggle} employee={employee} />
           </div>
         </ModalBody>
         <ModalFooter>

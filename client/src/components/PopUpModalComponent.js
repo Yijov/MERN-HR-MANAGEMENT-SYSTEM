@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import EmployeeFormComponent from "./EmployeeFormComponent";
 const PopUpModalComponent = (props) => {
-  const { buttonLabel, className, employees, setEmployees } = props;
+  const { buttonLabel, className } = props;
 
   const [modal, setModal] = useState(false);
 
@@ -17,11 +17,7 @@ const PopUpModalComponent = (props) => {
         <ModalHeader toggle={toggle}>Please Fill</ModalHeader>
         <ModalBody>
           <div>
-            <EmployeeFormComponent
-              toggle={toggle}
-              employees={employees}
-              setEmployees={setEmployees}
-            />
+            <EmployeeFormComponent toggle={toggle} />
           </div>
         </ModalBody>
         <ModalFooter>

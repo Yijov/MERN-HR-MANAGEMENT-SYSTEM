@@ -1,10 +1,7 @@
 import React from "react";
+
 import UpdateModalComponent from "./UpdateModalComponent";
-export default function ListedEmployeeComponent({
-  employee,
-  employees,
-  setEmployees,
-}) {
+export default function ListedEmployeeComponent({ employee }) {
   const {
     badge,
     firstName,
@@ -23,8 +20,6 @@ export default function ListedEmployeeComponent({
           buttonLabel="Update"
           className="add-btn"
           employee={employee}
-          setEmployees={setEmployees}
-          employees={employees}
         />
       </td>
       <td>{badge}</td>

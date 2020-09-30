@@ -1,24 +1,8 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
+import { DepartmentContext } from "../DepartmentContext";
 
 function DepartmentSelectComponent() {
-  const [departments, setDepartments] = useState([]);
-
-  useEffect(() => {
-    // On load calls the back en for the list of departments
-    const allDepartments = "http://localhost:5000/api/departments";
-    let cancel;
-    axios
-      .get(allDepartments, {
-        cancelToken: new axios.CancelToken((c) => (cancel = c)),
-      })
-      .then((res) => {
-        setDepartments(res.data);
-      });
-    return () => {
-      cancel();
-    };
-  }, []);
+  const [departments] = useContext(DepartmentContext);
 
   return (
     <>
