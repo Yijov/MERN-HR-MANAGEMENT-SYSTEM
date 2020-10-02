@@ -1,28 +1,30 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { EmployeesContextProvider } from "./EmployeesContext";
-import { DepartmentContextProvider } from "./DepartmentContext";
+import HomePage from "./HomePage";
+import EmployeesPage from "./EmployeesPage";
+import DepartmentsPage from "./DepartmentsPage";
 import NavbarComponent from "./components/NavbarComponent";
-import EmployeesListComponent from "./components/EmployeeListComponent";
-import PopUpModalComponent from "./components/PopUpModalComponent";
+import AboutPage from "./AboutPage";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <NavbarComponent />
-      <EmployeesContextProvider>
-        <DepartmentContextProvider>
-          <div className="container">
-            <PopUpModalComponent
-              buttonLabel="AddEmployees"
-              className="add-btn"
-            />
-            <EmployeesListComponent />
-          </div>
-        </DepartmentContextProvider>
-      </EmployeesContextProvider>
-    </div>
+    <Router>
+      <div className="App">
+        <NavbarComponent />
+
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+
+          <Route path="/employees" component={EmployeesPage} />
+
+          <Route path="/departments" component={DepartmentsPage} />
+
+          <Route path="/about" component={AboutPage} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

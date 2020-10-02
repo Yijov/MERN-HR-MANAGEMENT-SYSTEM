@@ -1,11 +1,36 @@
-.container {
-  overflow: hidden;
-  width: 100%;
+.App {
+  text-align: center;
 }
+
+/* Nav links styles  */
+
+.navBar {
+  background: blue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 4rem;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.navLinks {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  list-style: none;
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+}
+
+/* tables  */
 td {
   width: auto;
 }
 
+/* Forms */
 input,
 select {
   display: block;
@@ -16,7 +41,10 @@ select {
 }
 .add {
   margin-top: 1rem;
+  margin-bottom: 2rem;
 }
+
+/* Submit Error Mesage*/
 .error {
   color: red;
 }
