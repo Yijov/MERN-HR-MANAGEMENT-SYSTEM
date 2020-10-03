@@ -1,0 +1,111 @@
+.page {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+}
+
+/* simple - enter transition 300ms, exit 150ms */
+.fade-appear,
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  -webkit-transition: opacity 450ms linear 250ms;
+  transition: opacity 450ms linear 250ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  -webkit-transition: opacity 150ms linear;
+  transition: opacity 150ms linear;
+}
+
+.navBar {
+  background: blue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 4rem;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.navLinks {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  list-style: none;
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+}
+
+.nav a.active {
+  background-color: #61dafb;
+  color: #222;
+}
+
+/* tables  */
+td {
+  width: auto;
+}
+
+/* Forms */
+input,
+select {
+  display: block;
+  width: 100%;
+  margin-top: 0.8rem;
+  padding: 0.5rem;
+  font-weight: 450;
+}
+
+.add {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Submit Error Mesage*/
+.error {
+  color: red;
+}
+
+.App {
+  text-align: center;
+  position: relative;
+}
+
+.page {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  text-decoration: none;
+}
+
+.page li {
+  list-style: none;
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+}
+/*# sourceMappingURL=app.css.map */

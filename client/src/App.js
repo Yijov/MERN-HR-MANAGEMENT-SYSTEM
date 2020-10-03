@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./css/app.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import HomePage from "./HomePage";
@@ -8,11 +8,10 @@ import EmployeesPage from "./EmployeesPage";
 import DepartmentsPage from "./DepartmentsPage";
 import NavbarComponent from "./components/NavbarComponent";
 
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 function App() {
-  let location = useLocation();
   return (
     <div className="App">
       <NavbarComponent />
