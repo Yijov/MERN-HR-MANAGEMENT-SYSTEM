@@ -8,9 +8,14 @@ export default function EmployeesPage() {
   return (
     <EmployeesContextProvider>
       <DepartmentContextProvider>
-        <div className="container">
-          <PopUpModalComponent buttonLabel="AddEmployees" className="add-btn" />
-          <EmployeesListComponent />
+        <div className="page">
+          <div className="container">
+            <PopUpModalComponent
+              buttonLabel="AddEmployees"
+              className="add-btn"
+            />
+            <EmployeesListComponent />
+          </div>
         </div>
       </DepartmentContextProvider>
     </EmployeesContextProvider>
