@@ -36,7 +36,8 @@ export default function AboutPage() {
         In the future should add am authentication system, a colection of logs
         and actions performed in the sistem and more fields to each category.
         For example, you can add a STATUS field to an employee to see if its on
-        vacations, medical license ot any other.
+        vacations, medical license ot any other. Some parts of the UI are a
+        mockub of aome functionaleties to be added in the future
       </p>
       <p>
         The fiel badge for creating an employee only accepts an specific format:{" "}

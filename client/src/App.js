@@ -1,7 +1,6 @@
 import React from "react";
 import "./css/app.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
 import EmployeesPage from "./EmployeesPage";
