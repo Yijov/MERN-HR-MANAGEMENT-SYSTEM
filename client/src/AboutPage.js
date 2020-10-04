@@ -17,10 +17,10 @@ export default function AboutPage() {
       <ul>
         <li>GET all Employees: /employees</li>
         <li>GET all Departments: /departments</li>
-        <li>GET all One Employee: /employes/:id</li>
+        <li>GET all One Employee: /employees/:id</li>
         <li>GET all One Department: /departments/:id</li>
         <li>
-          DELETE a Department: (Including all employes in it): /departments/:id
+          DELETE a Department: (Including all employees in it): /departments/:id
         </li>
         <li>DELETE an Employee: /employes/:id</li>
         <li>PATCH an employee: /employes/:id</li>

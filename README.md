@@ -10,11 +10,11 @@ The API has several endpoits that send back JSON data:
 
 GET all Employees: /employees
 GET all Departments: /departments
-GET all One Employee: /employes/:id
+GET all One Employee: /employees/:id
 GET all One Department: /departments/:id
-DELETE a Department: (Including all employes in it): /departments/:id
+DELETE a Department: (Including all employees in it): /departments/:id
 DELETE an Employee: /employes/:id
-PATCH an employee: /employes/:id
+PATCH an employee: /employees/:id
 PATCH a Department: /departments/:id
 For more about the API chech the server folder/src/api
 Some of the components in he frontEnd come from reactstrap nut most of the looks is custom code with SCSS for the Styles.

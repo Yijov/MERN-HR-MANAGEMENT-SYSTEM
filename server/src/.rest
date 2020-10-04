@@ -1,6 +1,9 @@
 GET http://localhost:5000/api/employees
 
 
+
+
+
 ###
 
 GET http://localhost:5000/api/employees/5f71f772fcbdef268c93943e
@@ -17,7 +20,7 @@ content-Type: application/json
     "lastName": "Corona",
     "department": "Marketing",
     "position": "Promotor",
-    "badge":"BDG-137084",
+    "badge":"BDG-998094",
     "hireDate": "28/Sep/2020"
 }
 
@@ -34,6 +37,8 @@ content-Type: application/json
 
 ###
 DELETE  http://localhost:5000/api/employees/5f71f865fcbdef268c939445
+
+
 
 
 ###

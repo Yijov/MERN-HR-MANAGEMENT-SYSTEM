@@ -13,7 +13,7 @@ const departmentsRoutes = require("./api/departments"); // router
 const app = express();
 
 mongoose
-  .connect(process.env.DATABASE_URL, {
+  .connect(process.env.DATABASE_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

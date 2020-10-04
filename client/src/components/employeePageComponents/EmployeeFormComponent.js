@@ -33,7 +33,7 @@ export default function EmployeeFormComponent({ toggle }) {
       await setEmployees([...newStatus]);
       setTimeout(() => {
         toggle();
-      }, 5000);
+      }, 3000);
     } catch (error) {
       console.error(error);
       setError(error.message);

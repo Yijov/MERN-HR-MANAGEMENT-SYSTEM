@@ -21,3 +21,28 @@ select {
 .error {
   color: red;
 }
+
+.employeeActions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  select {
+    width: 12%;
+    margin-right: 1rem;
+  }
+  label {
+    margin-right: 1rem;
+  }
+}
+
+.searchBarDiv {
+  display: flex;
+  width: 40%;
+  margin-left: auto;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  justify-content: space-around;
+  align-items: center;
+}

@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 const employee = require("../models/employee.model");
+const department = require("../models/department.model");
 
 //GET  all employees at /api/employees
 router.get("/", async (request, response, next) => {
@@ -26,9 +27,10 @@ router.get("/:id", async (request, response, next) => {
 
 router.post("/", async (request, response, next) => {
   try {
-    const employeesToAdd = await new employee(request.body);
-    await employeesToAdd.save();
-    response.json({ add: true, employeesToAdd });
+    const employeeToAdd = await new employee(request.body);
+    await employeeToAdd.save();
+    await SetDepartmentNumOfEmployees(employeeToAdd.department, "increase");
+    response.json({ add: true, employeeToAdd });
   } catch (error) {
     next(error);
   }
@@ -52,11 +54,32 @@ router.patch("/:id", async (req, res) => {
 router.delete("/:id", async (request, response, next) => {
   try {
     const singleEmployee = await employee.findById(request.params.id);
-    singleEmployee.remove();
+    await singleEmployee.remove();
+    await SetDepartmentNumOfEmployees(singleEmployee.department, "decrease");
     response.json({ deteted: true, singleEmployee });
   } catch (error) {
     next(error);
   }
 });
+
+//side effect Function to increase or decrease department count when an employee is added or removed
+
+const SetDepartmentNumOfEmployees = async (Department, action) => {
+  const [departmentToEncrease] = await department.find({
+    departmentName: Department,
+  });
+
+  if (action === "increase") {
+    await department.updateOne(
+      { _id: departmentToEncrease._id },
+      { $set: { numOFemployees: departmentToEncrease.numOFemployees + 1 } }
+    );
+  } else {
+    await department.updateOne(
+      { _id: departmentToEncrease._id },
+      { $set: { numOFemployees: departmentToEncrease.numOFemployees - 1 } }
+    );
+  }
+};
 
 module.exports = router;

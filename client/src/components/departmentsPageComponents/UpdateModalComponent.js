@@ -1,25 +1,29 @@
 import React, { useState, useContext } from "react";
-import { EmployeeContext } from "../../context/EmployeesContext";
+import { DepartmentContext } from "../../context/DepartmentContext";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import UpdateFormComponent from "./UpdateFormComponent";
 import axios from "axios";
 
 const UpdateModalComponent = (props) => {
-  const [employees, setEmployees] = useContext(EmployeeContext);
-  const { buttonLabel, className, employee } = props;
+  const [departments, setDepartments] = useContext(DepartmentContext);
+  const { buttonLabel, className, department } = props;
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
 
-  const newState = employees.filter((emp) => emp._id !== employee._id);
-  const employeesToDelete = `http://localhost:5000/api/employees/${employee._id}`;
+  const newState = departments.filter((dep) => dep._id !== department._id);
+  const departmentToDelete = `http://localhost:5000/api/departments/${department._id}`;
 
-  const handleDeleEmployee = async () => {
-    if (window.confirm("Are you sure you want to delete this employee")) {
+  const handleDeleteDepartment = async () => {
+    if (
+      window.confirm(
+        "¿Are you sure you want to delete this Department? \n This will delete all employees under this department as well"
+      )
+    ) {
       try {
-        await axios.delete(employeesToDelete);
-        await setEmployees([...newState]);
-        window.alert("Employee Deleted");
+        await axios.delete(departmentToDelete);
+        await setDepartments([...newState]);
+        window.alert("Department Deleted");
       } catch (error) {
         console.error(error);
       }
@@ -35,12 +39,12 @@ const UpdateModalComponent = (props) => {
         <ModalHeader toggle={toggle}>Insert New Values</ModalHeader>
         <ModalBody>
           <div>
-            <UpdateFormComponent toggle={toggle} employee={employee} />
+            <UpdateFormComponent toggle={toggle} department={department} />
           </div>
         </ModalBody>
         <ModalFooter>
-          <Button color="danger" onClick={handleDeleEmployee}>
-            Delete Employee
+          <Button color="danger" onClick={handleDeleteDepartment}>
+            Delete Department
           </Button>
           {"  "}
           <Button color="secondary" onClick={toggle}>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import EmployeeFormComponent from "./EmployeeFormComponent";
-const PopUpModalComponent = (props) => {
+const AddEmployeeModalComponent = (props) => {
   const { buttonLabel, className } = props;
 
   const [modal, setModal] = useState(false);
@@ -10,7 +10,7 @@ const PopUpModalComponent = (props) => {
 
   return (
     <div>
-      <Button color="dark" onClick={toggle}>
+      <Button color="primary" onClick={toggle}>
         {buttonLabel}
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
@@ -30,4 +30,4 @@ const PopUpModalComponent = (props) => {
   );
 };
 
-export default PopUpModalComponent;
+export default AddEmployeeModalComponent;
