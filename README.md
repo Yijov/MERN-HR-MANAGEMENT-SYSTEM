@@ -1,4 +1,4 @@
-# HR MERN CRUD APP
+#MERN-HR-MANAGEMENT-SYSTEM
 
 HR database management app with MERN stack.
 
